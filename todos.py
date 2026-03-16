@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException
 from typing import List
-from todo import Todo, TodoCreate
+from todo import Todo, TodoCreate, TodoUpdate
 from database import todos, next_id
 from datetime import datetime
 
@@ -36,17 +36,13 @@ def create_todo(todo: TodoCreate):
     todos.append(new_todo)
     return new_todo
 
-# TODO: Implémenter la route PUT /todos/{id}
-# - Recevoir un TodoCreate dans le body
-# - Trouver le todo correspondant à l'id
-# - Mettre à jour le titre et la description
-# - Retourner le todo mis à jour
-# - Si le todo n'existe pas, retourner une erreur 404
-@router.put("/{id}", response_model=Todo)
-def update_todo(id: int, todo: TodoCreate):
+
+@router.patch("/{todo_id}", response_model=Todo)
+def update_todo(todo_id: int, todo: TodoUpdate):
     for t in todos:
-        if t.id == id:
-            t.title = todo.title
-            t.description = todo.description
+        if t.id == todo_id:
+            update_data = todo.model_dump(exclude_unset=True)
+            for key, value in update_data.items():
+                setattr(t, key, value)
             return t
     raise HTTPException(status_code=404, detail="Todo not found")
