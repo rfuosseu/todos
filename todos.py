@@ -46,3 +46,11 @@ def update_todo(todo_id: int, todo: TodoUpdate):
                 setattr(t, key, value)
             return t
     raise HTTPException(status_code=404, detail="Todo not found")
+
+
+@router.get("/{todo_id}", response_model=Todo)
+def get_todo(todo_id: int):
+    for t in todos:
+        if t.id == todo_id:
+            return t
+    raise HTTPException(status_code=404, detail="Todo not found")
