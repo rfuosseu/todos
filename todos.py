@@ -35,3 +35,13 @@ def create_todo(todo: TodoCreate):
     )
     todos.append(new_todo)
     return new_todo
+
+
+@router.patch("/{todo_id}", response_model=Todo)
+def update_todo(todo_id: int, todo: TodoCreate):
+    for t in todos:
+        if t.id == todo_id:
+            t.title = todo.title
+            t.description = todo.description
+            return t
+    raise HTTPException(status_code=404, detail="Todo not found")
