@@ -54,3 +54,11 @@ def get_todo(todo_id: int):
         if t.id == todo_id:
             return t
     raise HTTPException(status_code=404, detail="Todo not found")
+
+@router.delete("/{todo_id}", status_code=204)
+def delete_todo(todo_id: int):
+    for i, t in enumerate(todos):
+        if t.id == todo_id:
+            del todos[i]
+            return
+    raise HTTPException(status_code=404, detail="Todo not found")
