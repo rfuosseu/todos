@@ -37,10 +37,10 @@ def create_todo(todo: TodoCreate):
     return new_todo
 
 
-@router.patch("/{todo_id}", response_model=Todo)
-def update_todo(todo_id: int, todo: TodoCreate):
+@router.put("/{id}", response_model=Todo)
+def update_todo(id: int, todo: TodoCreate):
     for t in todos:
-        if t.id == todo_id:
+        if t.id == id:
             t.title = todo.title
             t.description = todo.description
             return t
