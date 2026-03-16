@@ -36,7 +36,12 @@ def create_todo(todo: TodoCreate):
     todos.append(new_todo)
     return new_todo
 
-
+# TODO: Implémenter la route PUT /todos/{id}
+# - Recevoir un TodoCreate dans le body
+# - Trouver le todo correspondant à l'id
+# - Mettre à jour le titre et la description
+# - Retourner le todo mis à jour
+# - Si le todo n'existe pas, retourner une erreur 404
 @router.put("/{id}", response_model=Todo)
 def update_todo(id: int, todo: TodoCreate):
     for t in todos:
