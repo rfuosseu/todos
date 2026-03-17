@@ -26,3 +26,6 @@ jobs:
 
       - name: Dire le nom du repo
         run: echo "Repository - ${{ github.repository }}"
+      
+      - name: Dire liste varriables github
+        run: echo "Liste des variables d'environnement disponibles - ${{ toJson(github) }}"
