@@ -1,0 +1,28 @@
+name: Hello World - Mon premier workflow
+
+# Quand est-ce qu'on lance ce workflow ?
+on:
+  push:               # À chaque fois que quelqu'un fait git push
+    branches: [ "main" ]  # Seulement sur la branche main
+  pull_request:       # À chaque fois qu'une Pull Request est ouverte/mise à jour
+    branches: [ "main" ]  # Vers la branche main
+
+# Les "jobs" = les tâches qu'on veut exécuter
+jobs:
+
+  dire-bonjour:       # Nom du job (tu peux l'appeler comme tu veux)
+    runs-on: ubuntu-latest     # On utilise un ordinateur virtuel Linux fourni par GitHub
+
+    steps:                     # Les étapes s'exécutent l'une après l'autre
+
+      - name: Dire Hello World
+        run: echo "Hello World ! 🌍"
+
+      - name: Dire qui je suis
+        run: echo "Je suis lancé par ${{ github.actor }}"
+
+      - name: Dire sur quelle branche
+        run: echo "Branche actuelle : ${{ github.ref_name }}"
+
+      - name: Dire le nom du repo
+        run: echo "Repository : ${{ github.repository }}"
