@@ -22,7 +22,7 @@ jobs:
         run: echo "Je suis lancé par ${{ github.actor }}"
 
       - name: Dire sur quelle branche
-        run: echo "Branche actuelle : ${{ github.ref_name }}"
+        run: echo "Branche actuelle - ${{ github.ref_name }}"
 
       - name: Dire le nom du repo
-        run: echo "Repository : ${{ github.repository }}"
+        run: echo "Repository - ${{ github.repository }}"
