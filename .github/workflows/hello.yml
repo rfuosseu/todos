@@ -5,3 +5,11 @@ on:
     branches: [ "main" ]  # Seulement sur la branche main
   pull_request:       # À chaque fois qu'une Pull Request est ouverte/mise à jour
     branches: [ "main" ]  # Vers la branche main
+
+jobs: 
+  HelloWorld:          # Nom du job
+    runs-on: ubuntu-latest  # OS sur lequel le job s'exécute
+
+    steps:              # Étapes du job
+      - name: Hello world step  # Nom de l'étape
+        run: echo "Hello, world!"  # Commande à exécuter
