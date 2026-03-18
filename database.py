@@ -1,8 +1,9 @@
 from typing import List
+
 from todo import Todo
 
 # Base de données en mémoire — simple liste Python
-todos: List[Todo] = []
+todos: list[Todo] = []
 
 # Compteur pour générer les IDs
 counter: int = 0
