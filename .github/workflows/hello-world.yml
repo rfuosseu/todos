@@ -27,5 +27,8 @@ jobs:
       - name: Dire le nom du repo
         run: echo "Repository - ${{ github.repository }}"
       
-      - name: Dire liste varriables github
-        run: echo "Liste des variables d'environnement disponibles - ${{ toJson(github) }}"
+      - name: Récupère le code (checkout)
+        uses: actions/checkout@v6   # Action officielle pour récupérer le code du repo
+
+      - name: Affiche les fichiers du repo
+        run: ls -la
