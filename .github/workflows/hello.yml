@@ -1,1 +1,7 @@
 name: hello world - Mon premier workflow
+
+on:
+  push:               # À chaque fois que quelqu'un fait git push
+    branches: [ "main" ]  # Seulement sur la branche main
+  pull_request:       # À chaque fois qu'une Pull Request est ouverte/mise à jour
+    branches: [ "main" ]  # Vers la branche main
