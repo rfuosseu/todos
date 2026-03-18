@@ -16,6 +16,8 @@ jobs:
 
       - name: Set up Python
         uses: actions/setup-python@v4  # Action pour configurer Python
+        with:
+          python-version: '3.9'  # Version de Python à utiliser
 
       - name: install dependencies
         run: |
@@ -24,3 +26,11 @@ jobs:
 
       - name: Run linter
         run: ruff check .  # Lancer le linter sur tout le code
+
+  Test:
+    runs-on: ubuntu-latest
+    needs: Lint  # Ce job ne s'exécute que si le job Lint réussit
+
+    steps:
+      - name: test
+        uses: echo "Tests à implémenter"  # Placeholder pour les tests à venir
