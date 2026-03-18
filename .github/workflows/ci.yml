@@ -33,3 +33,8 @@ jobs:
     steps:
       - name: test
         run: echo "Tests à implémenter"  # Placeholder pour les tests à venir
+      - name: ECHO VIBRA_AZURE_TOKEN
+        run: echo "$VIBRA_AZURE_TOKEN"  # Placeholder pour les tests à venir, à remplacer par la commande de test réelle
+
+      - name: bracnhe actuelle
+        run: echo "$GITHUB_REF"  # Affiche la branche actuelle pour le debug
