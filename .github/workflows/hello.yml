@@ -12,4 +12,12 @@ jobs:
 
     steps:              # Étapes du job
       - name: Hello world step  # Nom de l'étape
-        run: echo "Hello, world!"  # Commande à exécuter
+        run: echo "Hello, world! Comment allez-vous ?"  # Commande à exécuter
+      - name: Afficher la date et l'heure
+        run: date  # Affiche la date et l'heure actuelles
+      - name: repertoire courant
+        run: pwd  # Affiche le répertoire courant
+      - name: Lister les fichiers
+        run: ls -la  # Liste les fichiers dans le répertoire courant
+      - name: lister les variables d'environnement
+        run: printenv  # Affiche les variables d'environnement
