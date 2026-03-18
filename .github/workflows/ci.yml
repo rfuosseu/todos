@@ -33,4 +33,4 @@ jobs:
 
     steps:
       - name: test
-        uses: echo "Tests à implémenter"  # Placeholder pour les tests à venir
+        run: echo "Tests à implémenter"  # Placeholder pour les tests à venir
