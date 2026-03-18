@@ -1,8 +1,10 @@
-from fastapi import APIRouter, HTTPException
-from typing import List
-from todo import Todo, TodoCreate, TodoUpdate
-from database import todos, next_id
 from datetime import datetime
+from typing import List
+
+from fastapi import APIRouter, HTTPException
+
+from database import next_id, todos
+from todo import Todo, TodoCreate, TodoUpdate
 
 router = APIRouter(
     prefix="/todos",
@@ -13,7 +15,7 @@ router = APIRouter(
 # TODO: Implémenter la route GET /todos
 # - Retourner la liste complète des todos
 # - Type de retour : List[Todo]
-@router.get("/", response_model=List[Todo])
+@router.get("/", response_model=list[Todo])
 def get_todos():
     return todos
 
@@ -45,7 +47,7 @@ def update_todo(todo_id: int, todo: TodoUpdate):
             for key, value in update_data.items():
                 setattr(t, key, value)
             return t
-    raise HTTPException(status_code=404, detail="Todo not found")
+    raise HTTPException(status_code=404, detail='Todo not found')
 
 
 @router.get("/{todo_id}", response_model=Todo)

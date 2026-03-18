@@ -1,0 +1,21 @@
+name: Intégration Continue
+
+on:
+  push:               # À chaque fois que quelqu'un fait git push
+    branches: [ "main" ]  # Seulement sur la branche main
+  pull_request:       # À chaque fois qu'une Pull Request est ouverte/mise à jour
+    branches: [ "main" ]  # Vers la branche main
+
+jobs: 
+  Lint:          # Nom du job
+    runs-on: ubuntu-latest  # OS sur lequel le job s'exécute
+
+    steps:              # Étapes du job
+      - name: Checkout code
+        uses: actions/checkout@v6  # Action pour récupérer le code du repo
+
+      - name: Set up Python
+        uses: actions/setup-python@v4  # Action pour configurer Python
+
+      - name: listes des fichiers
+        run: ls -la
