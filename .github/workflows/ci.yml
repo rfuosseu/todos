@@ -29,7 +29,6 @@ jobs:
 
   Test:
     runs-on: ubuntu-latest
-    needs: Lint  # Ce job ne s'exécute que si le job Lint réussit
 
     steps:
       - name: test
