@@ -3,7 +3,10 @@ import todos
 
 app = FastAPI(
     title="TodoAPI",
-    description="Une API REST simple pour gérer des todos — projet fil rouge formation Git & GitHub",
+    description=(
+        "Une API REST simple pour gérer des todos — "
+        "projet fil rouge formation Git & GitHub"
+    ),
     version="0.1.0",
 )
 
